@@ -4,38 +4,93 @@
 <head>
     <title>M</title>
     <script>
+        var darkModeOn = true;
+
         function monkeyPox() {
-            document.getElementById("meow").innerHTML = document.getElementById("monkey").value
+            const inputValue = document.getElementById("monkey").value;
+            let result = "";
+            for (let i = 0; i < inputValue.length; i++){
+                if(inputValue.substring(i, i+1) == "a" || inputValue.substring(i, i+1) == "A"){
+                    result += "U";
+                } else if(inputValue.substring(i, i+1) == "t" || inputValue.substring(i, i+1) == "T"){
+                    result += "A";
+                } else if(inputValue.substring(i, i+1) == "g" || inputValue.substring(i, i+1) == "G"){
+                    result += "C";
+                } else if(inputValue.substring(i, i+1) == "c" || inputValue.substring(i, i+1) == "C"){
+                    result += "G";
+                } else {
+                    result += " ";
+                }
+            }
+            document.getElementById("meow").innerHTML = result;
+            console.log("Translation done.");
+        }
+
+        function darkMode() {
+            if (darkModeOn){
+                document.body.style.backgroundColor = "#1d2a35";
+                document.getElementById("header").style.backgroundColor = "#0d1721";
+                document.getElementById("header").style.color = "white";
+                document.getElementById("footer").style.backgroundColor = "#0d1721";
+                document.getElementById("darkModeButton").innerHTML = "Dark Mode Off"
+                document.getElementById("cred").style.color = "white";
+                document.getElementById("meow").style.color = "white";
+                darkModeOn = false;
+            } else {
+                document.body.style.backgroundColor = "#ffffff";
+                document.getElementById("header").style.backgroundColor = "#e6e9eb";
+                document.getElementById("header").style.color = "black";
+                document.getElementById("footer").style.backgroundColor = "#e6e9eb";
+                document.getElementById("darkModeButton").innerHTML = "Dark Mode On"
+                document.getElementById("cred").style.color = "black";
+                document.getElementById("meow").style.color = "black";
+                darkModeOn = true;
+            }
         }
     </script>
     <style>
-        body {
-            background-color: rgb(170, 204, 235);
-        }
-        
         header {
-            background-color: rgb(147, 181, 214);
+            background-color:#e6e9eb;
             padding: 10px;
             text-align: center;
             font-size: 30px;
-            color: rgb(0, 0, 0);
+            color: black;
+        }
+
+        #footer {
+            position: fixed;
+            padding: 10px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            /* Height of the footer*/
+            height: 80px;
+            background: #e6e9eb;
+        }
+        .center {
+            text-align: center;
         }
         
         .main_text {
             font-family: Times "Times New Roman", Times, serif;
-            ;
         }
     </style>
 </head>
 
-<body>
-    <header>
-        <h2>Welcome to the new website</h2>
+<body id="body" style="background-color: #ffffff;">
+    <header id="header">
+        <h2>DNA to RNA</h2>
     </header>
-    <p style="font-size: larger; text-align: center;" class="main_text">If you are bored, make sure tell me if <a href="http://127.0.0.1:5500/web2.html">you like gay people</a></p>
-    <input type="text" id="monkey">
-    <button onclick="monkeyPox()">Translate</button>
-    <p id="meow"></p>
+
+    <div style="text-align: center;">
+        <input type="text" id="monkey">
+        <button onclick="monkeyPox()">Translate</button>
+        <p id="meow"></p>
+    </div>
+
+    <div id="footer" style="text-align: center;">
+        <button onclick="darkMode()" id="darkModeButton">Dark Mode On</button>
+        <p id="cred">Made by: Yaraslau Makarevich</p>
+    </div>
 </body>
 
 </html>

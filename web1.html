@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width">
     <title>M</title>
     <script>
         var darkModeOn = true;
@@ -35,6 +36,8 @@
                 document.getElementById("darkModeButton").innerHTML = "Dark Mode Off"
                 document.getElementById("cred").style.color = "white";
                 document.getElementById("meow").style.color = "white";
+                document.getElementById("monkey").style.color = "white";
+                document.getElementById("monkey").style.backgroundColor = "#0d1721";
                 darkModeOn = false;
             } else {
                 document.body.style.backgroundColor = "#ffffff";
@@ -49,6 +52,10 @@
         }
     </script>
     <style>
+        input {
+            width: 100%;
+        }
+
         header {
             background-color:#e6e9eb;
             padding: 10px;
@@ -81,14 +88,14 @@
         <h2>DNA to RNA</h2>
     </header>
 
-    <div style="text-align: center;">
-        <input type="text" id="monkey">
-        <button onclick="monkeyPox()">Translate</button>
+    <div style="text-align: center; font-size: xx-large;">
+        <input type="text" id="monkey" style="font-size: x-large; width: 750px; background-color: #f2f4f6;">
+        <button onclick="monkeyPox()"  style="font-size: large;">Translate</button>
         <p id="meow"></p>
     </div>
 
     <div id="footer" style="text-align: center;">
-        <button onclick="darkMode()" id="darkModeButton">Dark Mode On</button>
+        <button onclick="darkMode()" id="darkModeButton" style="font-size: large;">Dark Mode On</button>
         <p id="cred">Made by: Yaraslau Makarevich</p>
     </div>
 </body>

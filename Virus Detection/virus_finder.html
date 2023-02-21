@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function detectVirus() {
+                alert("YOUR COMPUTER IS INFECTED WITH 50 VIRUSES!!!");
+                document.getElementById("scam_name").innerHTML = "Call 512 636 5074 for a free virus fix up";
+                document.getElementById("picture").src = "indian tech expert.jpeg";
+            }
+        </script>
+        <style>
+            #main {
+                text-align: center;
+            }
+
+            #footer {
+                text-align: center;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                /* Height of the footer*/
+                height: 75px;
+                background: aqua;
+            }
+        </style>
+    </head>
+    <body style="background-color: aquamarine;">
+        <div id="main">
+            <h1>Free Virus Checker!</h1>
+            <button onclick="detectVirus()" style="font-size: large; margin-top: 200px;">Check For a Virus</button>
+            <p id="scam_name"></p>
+            <img src="" alt="" id="picture">
+        </div>
+
+
+        <div id="footer">
+            <button style="font-size: medium;margin-top: 20px;" onclick="location.href = 'https://yaraslau.live'">Home</button>
+            <p style="margin-top: 1px;">Made by: Yaraslau Makarevich&copy;</p>
+
+        </div>
+    </body>
+</html>

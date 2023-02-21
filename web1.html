@@ -8,22 +8,43 @@
         var darkModeOn = true;
 
         function monkeyPox() {
-            const inputValue = document.getElementById("monkey").value;
-            let result = "";
-            for (let i = 0; i < inputValue.length; i++){
-                if(inputValue.substring(i, i+1) == "a" || inputValue.substring(i, i+1) == "A"){
-                    result += "U";
-                } else if(inputValue.substring(i, i+1) == "t" || inputValue.substring(i, i+1) == "T"){
-                    result += "A";
-                } else if(inputValue.substring(i, i+1) == "g" || inputValue.substring(i, i+1) == "G"){
-                    result += "C";
-                } else if(inputValue.substring(i, i+1) == "c" || inputValue.substring(i, i+1) == "C"){
-                    result += "G";
+            const dnaData = document.getElementById("monkey").value;
+            const rnaData = document.getElementById("meow").value;
+            let rnaResult = "";
+            let dnaResult = "";
+            for (let i = 0; i < dnaData.length; i++){
+                if(dnaData.substring(i, i+1) == "a" || dnaData.substring(i, i+1) == "A"){
+                    rnaResult += "U";
+                } else if(dnaData.substring(i, i+1) == "t" || dnaData.substring(i, i+1) == "T"){
+                    rnaResult += "A";
+                } else if(dnaData.substring(i, i+1) == "g" || dnaData.substring(i, i+1) == "G"){
+                    rnaResult += "C";
+                } else if(dnaData.substring(i, i+1) == "c" || dnaData.substring(i, i+1) == "C"){
+                    rnaResult += "G";
                 } else {
-                    result += " ";
+                    rnaResult += " ";
                 }
             }
-            document.getElementById("meow").innerHTML = result;
+            
+            for (let i = 0; i < rnaData.length; i++){
+                if(rnaData.substring(i, i+1) == "a" || rnaData.substring(i, i+1) == "A"){
+                    dnaResult += "T";
+                } else if(rnaData.substring(i, i+1) == "u" || rnaData.substring(i, i+1) == "U"){
+                    dnaResult += "A";
+                } else if(rnaData.substring(i, i+1) == "g" || rnaData.substring(i, i+1) == "G"){
+                    dnaResult += "C";
+                } else if(rnaData.substring(i, i+1) == "c" || rnaData.substring(i, i+1) == "C"){
+                    dnaResult += "G";
+                } else {
+                    dnaResult += " ";
+                }
+            }
+            if (!rnaResult.length == 0){
+                document.getElementById("meow").value = rnaResult;
+            }
+            if (!dnaResult.length == 0){
+                document.getElementById("monkey").value = dnaResult;
+            }
             console.log("Translation done.");
         }
 
@@ -33,6 +54,7 @@
                 document.getElementById("header").style.backgroundColor = "#0d1721";
                 document.getElementById("header").style.color = "white";
                 document.getElementById("footer").style.backgroundColor = "#0d1721";
+                document.getElementById("meow").style.backgroundColor = "#0d1721";
                 document.getElementById("darkModeButton").innerHTML = "Dark Mode Off"
                 document.getElementById("cred").style.color = "white";
                 document.getElementById("meow").style.color = "white";
@@ -44,6 +66,7 @@
                 document.getElementById("header").style.backgroundColor = "#e6e9eb";
                 document.getElementById("header").style.color = "black";
                 document.getElementById("footer").style.backgroundColor = "#e6e9eb";
+                document.getElementById("meow").style.backgroundColor = "#e6e9eb";
                 document.getElementById("darkModeButton").innerHTML = "Dark Mode On"
                 document.getElementById("cred").style.color = "black";
                 document.getElementById("meow").style.color = "black";
@@ -92,9 +115,9 @@
 
     <div style="text-align: center; font-size: xx-large; padding-top: 20px;">
         <input type="text" id="monkey" style="font-size: x-large; width: 750px; background-color: #f2f4f6;">
+        <input type="text" id="meow" style="font-size: x-large; width: 750px; background-color: #f2f4f6;">
         <br>
         <button onclick="monkeyPox()" style="font-size: large; margin-top: 20px;">Translate</button>
-        <p id="meow"></p>
     </div>
 
     <div id="footer" style="text-align: center;">
